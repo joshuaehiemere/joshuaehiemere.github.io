@@ -790,7 +790,7 @@
         </div>
     </footer>
     
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Smooth scroll navigation
         function scrollToProject(index) {
             const project = document.getElementById(`project-${index}`);
@@ -812,4 +812,15 @@
                     const index = entry.target.id.split('-')[1];
                     const navItems = document.querySelectorAll('.nav-item');
                     navItems.forEach((item, i) => {
-                        item.c
+                        item.classList.toggle('active', i == index);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        document.querySelectorAll('.project').forEach(project => {
+            observer.observe(project);
+        });
+    </script>
+</body>
+</html>
